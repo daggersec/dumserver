@@ -1,13 +1,9 @@
 name: Scan
 
 on:
-  workflow_call:
-    inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'dagger3d'
-        required: false
-        type: string
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '25 21,22 * * *'
 
 jobs:
   build:
